@@ -38,7 +38,13 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">
+                    @if (Auth::check())
+                        You are signed in as {{ Auth::user()->username }}.
+                    @else
+                        You are not signed in!
+                    @endif
+                </div>
             </div>
         </div>
     </body>
