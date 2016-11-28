@@ -17,3 +17,12 @@ Route::get('/', function () {
 
 Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
+
+Route::get('logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
+
+Route::get('dashboard', function () {
+    return 'You are authorized to see this page!!';
+})->middleware('auth');
